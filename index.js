@@ -15,6 +15,10 @@ app.get("/", async function (req, res) {
   var json = [];
   const browser = await puppeteer.launch({
     headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 1200 });
